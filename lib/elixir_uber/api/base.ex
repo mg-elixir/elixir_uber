@@ -4,7 +4,7 @@ defmodule ElixirUber.API.Base do
   """
   alias ElixirUber.Config
 
-  @base_url "https://api.uber.com/v1"
+  @base_url "https://api.uber.com/v1.2"
 
   @doc """
   General HTTP `GET` request function. Takes a url part
@@ -40,11 +40,7 @@ defmodule ElixirUber.API.Base do
   end
 
   defp handle_response(data) do
-    response = Poison.decode!(data.body, keys: :atoms)
-    case response.meta.code do
-      200 -> response
-      _ -> raise(ElixirUber.Error, [code: response.meta.code, message: "#{response.meta.error_type}: #{response.meta.error_message}"])
-    end
+    Poison.decode!(data.body, keys: :atoms)
   end
 
   defp build_url([part, []], :global) do

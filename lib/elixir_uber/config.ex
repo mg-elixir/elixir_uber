@@ -9,9 +9,9 @@ defmodule ElixirUber.Config do
   end
   def configure do
     start_link(%ElixirUber.Model.ClientConfig{
-      client_id: Application.get_env(:elixir_uber, :elixir_uber_client_id) || System.get_env("UBER_CLIENT_ID"),
-      client_secret: Application.get_env(:elixir_uber, :elixir_uber_client_secret) || System.get_env("UBER_CLIENT_SECRET"),
-      redirect_uri: Application.get_env(:elixir_uber, :elixir_uber_redirect_uri) || System.get_env("UBER_REDIRECT_URI")
+      client_id: Application.get_env(:elixir_uber, :uber_client_id) || System.get_env("UBER_CLIENT_ID"),
+      client_secret: Application.get_env(:elixir_uber, :uber_client_secret) || System.get_env("UBER_CLIENT_SECRET"),
+      redirect_uri: Application.get_env(:elixir_uber, :uber_redirect_uri) || System.get_env("UBER_REDIRECT_URI")
       })
     {:ok, []}
   end
@@ -20,7 +20,7 @@ defmodule ElixirUber.Config do
   Set a global access token (associated with a user, rather than an application)
   """
   def configure(:global, token) do
-    set(:access_token, token)
+    set(:access_token, elem(token, 1))
   end
 
   @doc """

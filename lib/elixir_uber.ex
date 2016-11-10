@@ -28,6 +28,16 @@ defmodule ElixirUber do
   defdelegate configure, to: ElixirUber.Config, as: :configure
 
   @doc """
+  Sets a global user authentication token, this is useful for scenarios
+  where your app will only ever make requests on behalf of one user at
+  a time.
+  ## Example
+      iex(1)> Elixtagram.configure(:global, "MY-TOKEN")
+      :ok
+  """
+  defdelegate configure(scope, token), to: ElixirUber.Config, as: :configure
+  
+  @doc """
   Returns the url you will need to redirect a user to for them to authorise your
   app with their Uber account. When they log in there, you will need to
   implement a way to catch the code in the request url (they will be redirected back
@@ -50,15 +60,35 @@ defmodule ElixirUber do
   login and returns a client
 
   """
+  # def get_token!(code) do
+  #   ElixirUber.OAuthStrategy.get_token!(code)
+  # end
+
+  @doc """
+  Takes a `keyword list` containing the code returned from Instagram in the redirect after
+  login and returns a `{:ok, access_token}` for making authenticated requests.
+  If you pass an incorrect code, it will return you an `{:error, reason}`
+  ## Example
+      iex(1)> Elixtagram.get_token!(code: code)
+      {:ok, "XXXXXXXXXXXXXXXXXXXX"}
+  """
   def get_token!(code) do
-    ElixirUber.OAuthStrategy.get_token!(code)
+    case ElixirUber.OAuthStrategy.get_token!(code) do
+      %{token: %{other_params: %{"code" => 400, "error_message" => error_message}}} ->
+        {:error, error_message}
+      %{token: %{access_token: access_token}} ->
+        {:ok, access_token}
+      _ ->
+        {:error, "Something went wrong fetching the token..."}
+    end
   end
 
 
   ## ---------- Users
 
   @doc """
-  Takes a client and returns a `%ElixirUber.Model.User`.
+  Takes a token and returns a `%ElixirUber.Model.User`.
   """
-  defdelegate me(client), to: ElixirUber.API.Me, as: :me
+  defdelegate me(token), to: ElixirUber.API.Me, as: :me
+  defdelegate history(token), to: ElixirUber.API.History, as: :history
 end
