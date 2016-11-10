@@ -6,7 +6,7 @@ It only supports very limited set of functions yet. Refer to <a href="https://gi
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Package can be installed as:
 
   1. Add `elixir_uber` to your list of dependencies in `mix.exs`:
 
@@ -35,6 +35,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     # Get user object
     user = ElixirUber.me(client)
     ```
+
+## Documentation
+[Basic docs on hexdocs site](https://hexdocs.pm/elixir_uber/0.0.1/readme.html)
 
 ## Status
 
