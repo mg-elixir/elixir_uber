@@ -1,17 +1,12 @@
-# The directory Mix will write compiled artifacts to.
+# App artifacts
 /_build
-
-# If you run "mix test --cover", coverage assets end up here.
-/cover
-
-# The directory Mix downloads your dependencies sources to.
+/db
 /deps
-
-# Where 3rd-party dependencies like ExDoc output generated docs.
-/doc
-
-# If the VM crashes, it generates a dump, let's ignore it too.
+/*.ez
 erl_crash.dump
-
-# Also ignore archive artifacts (built via "mix archive.build").
-*.ez
+/config/prod.secret.exs
+.idea
+*.iml
+.DS_Store
+**/.DS_Store
+coverage.xml
