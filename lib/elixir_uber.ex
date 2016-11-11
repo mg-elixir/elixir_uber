@@ -77,4 +77,5 @@ defmodule ElixirUber do
   """
   defdelegate me(token), to: ElixirUber.API.Me, as: :me
   defdelegate history(token), to: ElixirUber.API.History, as: :history
+  defdelegate payment_methods(token), to: ElixirUber.API.PaymentMethods, as: :payment_methods
 end

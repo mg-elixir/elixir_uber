@@ -7,7 +7,7 @@ defmodule ElixirUber.Parser do
 
   def parse_history_items(object) do
     data = struct(ElixirUber.Model.HistoryItem, object)
-    start_city = parse_start_city(data) #Enum.map([data], &parse_start_city/1)
+    start_city = parse_start_city(data)
     %{data | start_city: start_city}
   end
 
@@ -19,6 +19,10 @@ defmodule ElixirUber.Parser do
     data = struct(ElixirUber.Model.History, object)
     history_items = Enum.map(data.history, &parse_history_items/1)
     %{data | history: history_items}
+  end
+
+  def parse_payment_methods(object) do
+    struct(ElixirUber.Model.PaymentMethod, object)
   end
 
 end
