@@ -27,13 +27,16 @@ Package can be installed as:
     
     ```elixir
     # Configure client
-    ElixirUber.configure("UBER_CLIENT_ID", "UBER_CLIENT_SECRET", "CALLBACK_URL")
+    iex(4)> ElixirUber.configure("UBER_CLIENT_ID", "UBER_CLIENT_SECRET", "CALLBACK_URL")
     # Call authorize_url! method
-    ElixirUber.authorize_url!
-    # Redirect to the url, and get code
-    client = ElixirUber.get_token!(code: "CODE")
-    # Get user object
-    user = ElixirUber.me(client)
+    iex(4)> ElixirUber.authorize_url!
+    # You will be redirected to the callback url, copy your code
+    iex(4)> access_token = ElixirUber.get_token!(code: "CODE")
+    # Now we can optionally set this as the global token, and make requests with it by passing :global instead of a token.
+    iex(4)> ElixirUber.configure(:global, access_token)
+    {:ok, []}
+    # Get user object or use client instead of :global
+    iex(4)> user = ElixirUber.me(:global)
     ```
 
 ## Documentation
@@ -44,6 +47,10 @@ Package can be installed as:
 It's very early version, most of API functions are missing.
 
 ## Changelog
+
+### 0.0.2
+- Basic rides history
+- Update dependencies
 
 ### 0.0.1
 - Basic current user info

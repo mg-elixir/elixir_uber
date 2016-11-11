@@ -7,7 +7,7 @@ defmodule ElixirUber.API.History do
   """
 
   def history(token \\ :global) do
-    get("/history", token) # |> parse_history
+    get("/history", token) |> parse_history
   end
 
 end

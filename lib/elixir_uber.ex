@@ -31,9 +31,6 @@ defmodule ElixirUber do
   Sets a global user authentication token, this is useful for scenarios
   where your app will only ever make requests on behalf of one user at
   a time.
-  ## Example
-      iex(1)> Elixtagram.configure(:global, "MY-TOKEN")
-      :ok
   """
   defdelegate configure(scope, token), to: ElixirUber.Config, as: :configure
   
@@ -57,20 +54,9 @@ defmodule ElixirUber do
 
   @doc """
   Takes a `keyword list` containing the code returned from Uber in the redirect after
-  login and returns a client
-
-  """
-  # def get_token!(code) do
-  #   ElixirUber.OAuthStrategy.get_token!(code)
-  # end
-
-  @doc """
-  Takes a `keyword list` containing the code returned from Instagram in the redirect after
   login and returns a `{:ok, access_token}` for making authenticated requests.
   If you pass an incorrect code, it will return you an `{:error, reason}`
-  ## Example
-      iex(1)> Elixtagram.get_token!(code: code)
-      {:ok, "XXXXXXXXXXXXXXXXXXXX"}
+  
   """
   def get_token!(code) do
     case ElixirUber.OAuthStrategy.get_token!(code) do
