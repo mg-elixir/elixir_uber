@@ -22,6 +22,12 @@ defmodule ElixirUber.Parser do
   end
 
   def parse_payment_methods(object) do
+    data = struct(ElixirUber.Model.PaymentMethods, object)
+    payment_methods = Enum.map(data.payment_methods, &parse_payment_method/1)
+    %{data | payment_methods: payment_methods}
+  end
+
+  def parse_payment_method(object) do
     struct(ElixirUber.Model.PaymentMethod, object)
   end
 

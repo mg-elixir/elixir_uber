@@ -18,6 +18,10 @@ defmodule ElixirUber.Model.StartCity do
   defstruct display_name: nil, latitude: nil, longitude: nil
 end
 
+defmodule ElixirUber.Model.PaymentMethods do
+  defstruct payment_methods: nil, last_used: nil
+end
+
 defmodule ElixirUber.Model.PaymentMethod do
   defstruct payment_method_id: nil, type: nil, description: nil
 end
