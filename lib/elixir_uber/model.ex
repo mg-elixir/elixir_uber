@@ -25,3 +25,7 @@ end
 defmodule ElixirUber.Model.PaymentMethod do
   defstruct payment_method_id: nil, type: nil, description: nil
 end
+
+defmodule ElixirUber.Model.Place do
+  defstruct address: nil
+end

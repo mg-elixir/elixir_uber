@@ -70,12 +70,23 @@ defmodule ElixirUber do
   end
 
 
-  ## ---------- Users
+  ## ---------- Implemented API methods
 
   @doc """
-  Takes a token and returns a `%ElixirUber.Model.User`.
+  Takes a token and returns a `%ElixirUber.Model.Me` with basic user info
   """
   defdelegate me(token), to: ElixirUber.API.Me, as: :me
+  @doc """
+  Takes a token and returns a `%ElixirUber.Model.History` with a rides history.
+  """
   defdelegate history(token), to: ElixirUber.API.History, as: :history
+  @doc """
+  Takes a token and returns a `%ElixirUber.Model.PaymentMethods` with available payment methods.
+  """
   defdelegate payment_methods(token), to: ElixirUber.API.PaymentMethods, as: :payment_methods
+  @doc """
+  Takes a place_id, token and returns a `%ElixirUber.Model.Places` with favorite work and home addresses.
+  place_id parameter should be 'work' or 'home'
+  """
+  defdelegate places(place_id, token), to: ElixirUber.API.Places, as: :places
 end

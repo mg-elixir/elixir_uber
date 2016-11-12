@@ -31,4 +31,7 @@ defmodule ElixirUber.Parser do
     struct(ElixirUber.Model.PaymentMethod, object)
   end
 
+  def parse_places(object) do
+    struct(ElixirUber.Model.Place, object)
+  end
 end
