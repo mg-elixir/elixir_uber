@@ -12,7 +12,7 @@ Package can be installed as:
 
     ```elixir
     def deps do
-      [{:elixir_uber, "~> 0.0.3"}]
+      [{:elixir_uber, "~> 0.0.4"}]
     end
     ```
 
@@ -48,8 +48,11 @@ It's very early version, most of API functions are missing.
 
 ## Changelog
 
+### 0.0.4
+- API method for Places added
+
 ### 0.0.3
-- API method for Payment methods added
+- API method for Payments added
 
 ### 0.0.2
 - Basic rides history
