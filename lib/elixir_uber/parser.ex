@@ -1,7 +1,6 @@
 defmodule ElixirUber.Parser do
 
   def parse_user(object) do
-  	#data = for {key, val} <- object, into: %{}, do: {String.to_atom(key), val}
     struct(ElixirUber.Model.User, object)
   end
 
@@ -34,4 +33,15 @@ defmodule ElixirUber.Parser do
   def parse_places(object) do
     struct(ElixirUber.Model.Place, object)
   end
+
+  def parse_products(object) do
+    data = struct(ElixirUber.Model.Products, object)
+    products = Enum.map(data.products, &parse_product/1)
+    %{data | products: products}
+  end
+
+  def parse_product(object) do
+    struct(ElixirUber.Model.Product, object)
+  end
+
 end

@@ -89,4 +89,8 @@ defmodule ElixirUber do
   place_id parameter should be 'work' or 'home'
   """
   defdelegate places(place_id, token), to: ElixirUber.API.Places, as: :places
+  @doc """
+  Takes a latitude, longitude, token and returns a `%ElixirUber.Model.Products` with available products list.
+  """
+  defdelegate products(latitude, longitude, token), to: ElixirUber.API.Products, as: :products
 end

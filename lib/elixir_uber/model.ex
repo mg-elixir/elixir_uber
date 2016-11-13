@@ -29,3 +29,11 @@ end
 defmodule ElixirUber.Model.Place do
   defstruct address: nil
 end
+
+defmodule ElixirUber.Model.Products do
+  defstruct products: nil
+end
+
+defmodule ElixirUber.Model.Product do
+  defstruct upfront_fare_enabled: nil, capacity: nil, product_id: nil, image: nil, cash_enabled: nil, shared: nil, short_description: nil, display_name: nil, product_group: nil, description: nil
+end
