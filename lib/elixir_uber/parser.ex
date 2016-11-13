@@ -44,4 +44,11 @@ defmodule ElixirUber.Parser do
     struct(ElixirUber.Model.Product, object)
   end
 
+  def parse_request(object) do
+    struct(ElixirUber.Model.Request, object)
+  end
+
+  def parse_receipt(object) do
+    struct(ElixirUber.Model.Receipt, object)
+  end
 end

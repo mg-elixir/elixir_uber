@@ -37,3 +37,11 @@ end
 defmodule ElixirUber.Model.Product do
   defstruct upfront_fare_enabled: nil, capacity: nil, product_id: nil, image: nil, cash_enabled: nil, shared: nil, short_description: nil, display_name: nil, product_group: nil, description: nil
 end
+
+defmodule ElixirUber.Model.Request do
+  defstruct driver: nil, location: nil, product_id: nil, request_id: nil, shared: nil, status: nil, vehicle: nil
+end
+
+defmodule ElixirUber.Model.Receipt do
+  defstruct currency_code: nil, distance: nil, distance_label: nil, duration: nil, request_id: nil, subtotal: nil, total_charged: nil, total_fare: nil, total_owed: nil
+end

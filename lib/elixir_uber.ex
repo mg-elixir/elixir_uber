@@ -81,6 +81,10 @@ defmodule ElixirUber do
   """
   defdelegate history(token), to: ElixirUber.API.History, as: :history
   @doc """
+  Takes a limit, offset, token and returns a `%ElixirUber.Model.History` with a rides history.
+  """
+  defdelegate history(limit, offset, token), to: ElixirUber.API.History, as: :history
+  @doc """
   Takes a token and returns a `%ElixirUber.Model.PaymentMethods` with available payment methods.
   """
   defdelegate payment_methods(token), to: ElixirUber.API.PaymentMethods, as: :payment_methods
@@ -93,4 +97,12 @@ defmodule ElixirUber do
   Takes a latitude, longitude, token and returns a `%ElixirUber.Model.Products` with available products list.
   """
   defdelegate products(latitude, longitude, token), to: ElixirUber.API.Products, as: :products
+  @doc """
+  Takes a request_id and returns a `%ElixirUber.Model.Request` with request details.
+  """
+  defdelegate request(request_id, token), to: ElixirUber.API.Request, as: :request
+  @doc """
+  Takes a request_id and returns a `%ElixirUber.Model.Receipt` with ride receipt details.
+  """
+  defdelegate receipt(request_id, token), to: ElixirUber.API.Receipt, as: :receipt
 end

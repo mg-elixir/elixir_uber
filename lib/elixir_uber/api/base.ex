@@ -52,7 +52,6 @@ defmodule ElixirUber.API.Base do
   defp build_url([part, []], token) do
     "#{@base_url}#{part}?access_token=#{token}"
   end
-
   defp build_url([part, params], :global) do
     config = Config.get
     auth_param = if config.access_token, do: ["access_token", config.access_token], else:  ["client_id", config.client_id]

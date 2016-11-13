@@ -13,7 +13,7 @@ Package can be installed as:
 
     ```elixir
     def deps do
-      [{:elixir_uber, "~> 0.0.5"}]
+      [{:elixir_uber, "~> 0.0.6"}]
     end
     ```
 
@@ -41,13 +41,16 @@ Package can be installed as:
     ```
 
 ## Documentation
-[Basic docs on hexdocs site](https://hexdocs.pm/elixir_uber/0.0.1/readme.html)
+[Basic docs on hexdocs site](https://hexdocs.pm/elixir_uber/0.0.6/readme.html)
 
 ## Status
 
 It's very early version, most of API functions are missing.
 
 ## Changelog
+
+### 0.0.6
+- API methods for Requests, Receipts added. Improved History retrieving, added offset and limit parameters. Additional scopes are added :all_trips, :request, :request_receipt
 
 ### 0.0.5
 - API method for Products added

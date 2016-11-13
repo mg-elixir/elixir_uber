@@ -4,7 +4,7 @@ defmodule ElixirUber.OAuthStrategy do
   alias OAuth2.Strategy.AuthCode
   alias ElixirUber.Config
 
-  @scopes ~w(profile places ride_widgets history_lite history)
+  @scopes ~w(profile places ride_widgets history_lite history all_trips request request_receipt)
 
   def client do
     config = Config.get
