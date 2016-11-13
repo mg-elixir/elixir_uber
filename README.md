@@ -1,6 +1,6 @@
 # ElixirUber
 
-Uber Technologies inc.(<a href="http://uber.com" target="_blank">http://uber.com</a>) client library for Elixir. It uses <a href="https://github.com/scrogson/oauth2" target="_blank">oauth2</a> to call Uber's REST API.
+Uber Technologies Inc. (<a href="http://uber.com" target="_blank">http://uber.com</a>) client library for Elixir. It uses <a href="https://github.com/scrogson/oauth2" target="_blank">oauth2</a> to call Uber's REST API.
 More info at <a href="https://developer.uber.com" target="_blank">https://developer.uber.com</a>.
 
 For now it supports very limited set of functions. Refer to <a href="https://github.com/maratgaliev/elixir_uber/blob/master/lib/elixir_uber.ex" target="_blank">lib/elixir_uber.ex</a> for available functions and examples.
