@@ -8,10 +8,10 @@ defmodule ElixirUber.Mixfile do
       elixir: "~> 1.3",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      description: description,
-      package: package,
+      description: description(),
+      package: package(),
       test_coverage: [tool: ExCoveralls],
-      deps: deps,
+      deps: deps(),
       docs: [extras: ["README.md"], main: "readme"]
     ]
   end
@@ -40,7 +40,7 @@ defmodule ElixirUber.Mixfile do
     [applications: app_list(Mix.env)]
   end
 
-  defp app_list(_), do: app_list
+  defp app_list(_), do: app_list()
   defp app_list, do: [:logger, :httpoison, :poison, :inets, :ssl, :crypto, :oauth2]
 
 
