@@ -11,22 +11,22 @@ Package can be installed as:
 
   1. Add `elixir_uber` to your list of dependencies in `mix.exs`:
 
-    ```elixir
+```elixir
     def deps do
       [{:elixir_uber, "~> 0.0.6"}]
     end
-    ```
+```
 
   2. Ensure `elixir_uber` is started before your application:
 
-    ```elixir
+```elixir
     def application do
       [applications: [:elixir_uber]]
     end
-    ```
+```
   3. Configuration
     
-    ```elixir
+```elixir
     # Configure client
     iex(4)> ElixirUber.configure("UBER_CLIENT_ID", "UBER_CLIENT_SECRET", "CALLBACK_URL")
     # Call authorize_url! method
@@ -38,7 +38,7 @@ Package can be installed as:
     {:ok, []}
     # Get user object or use client instead of :global
     iex(4)> user = ElixirUber.me(:global)
-    ```
+```
 
 ## Documentation
 [Basic docs on hexdocs site](https://hexdocs.pm/elixir_uber/0.0.6/readme.html)
